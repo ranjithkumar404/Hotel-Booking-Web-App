@@ -3,7 +3,7 @@ const { default: mongoose } = require('mongoose')
 const app=express()
 require('dotenv').config()
 const hotelrouter=require('./routes/hotel')
-
+app.use(express.json())
 app.use('/hotel',hotelrouter)
 const connect=async()=>{
 try {
