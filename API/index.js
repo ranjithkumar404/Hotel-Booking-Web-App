@@ -2,8 +2,9 @@ const express=require('express')
 const { default: mongoose } = require('mongoose')
 const app=express()
 require('dotenv').config()
+const hotelrouter=require('./routes/hotel')
 
-
+app.use('/hotel',hotelrouter)
 const connect=async()=>{
 try {
     await mongoose.connect(process.env.URL)
