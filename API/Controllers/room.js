@@ -2,9 +2,7 @@ const room=require('../models/room')
 const hotel=require('../models/room')
 
 const createRoom=async(req,res,next)=>{
-    
-   
-    try {
+try {
         const Room=await room.create(req.body)
          await hotel.findByIdAndUpdate(req.params.hotelId,{
             $push:{rooms: Room._id}
@@ -18,8 +16,8 @@ const createRoom=async(req,res,next)=>{
 const updateRoom=async(req,res,next)=>{
     try {
         //$set is to update the DB after finding the hotel and new is to return the updated one ,otherwise it will return the old one
-        const updatedhotel=await hotel.findByIdAndUpdate((req.params.id),{$set:req.body},{new:true})
-        res.status(200).json(updatedhotel)
+        const updatedRoom=await room.findByIdAndUpdate((req.params.id),{$set:req.body},{new:true})
+        res.status(200).json(updatedRoom)
     } catch (error) {
         next(error)
     }
@@ -27,7 +25,10 @@ const updateRoom=async(req,res,next)=>{
 
 const dltRoom=async(req,res,next)=>{
     try {
-       await room.findByIdAndDelete(req.params.id)
+        await hotel.findByIdAndUpdate(req.params.hotelId,{
+            $pull:{rooms: req.params.id}
+        })
+       
        res.status(200).json("Deleted Succefully!!")
     } catch (error) {
        next(error);
