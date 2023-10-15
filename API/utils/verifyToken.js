@@ -11,7 +11,7 @@ const verifyToken=(req,res,next)=>{
 }
 
 const verifyUser=(req,res,next)=>{
-    verifyToken(req,res,()=>{
+    verifyToken(req,res,next,()=>{
         if (req.user.id== req.params.id || req.user.isAdmin)
          next()
         else 
@@ -19,11 +19,14 @@ const verifyUser=(req,res,next)=>{
     })
 }
 const verifyAdmin=(req,res,next)=>{
-    verifyToken(req,res,()=>{
+    verifyToken(req,res,next,()=>{
         if ( req.user.isAdmin)
          next()
-        else 
-         return next(403,"You are not authorized!!")
+        else {
+            console.log("You are not authorized!!");
+            return next(403,"You are not authorized!!")
+        }
+        
     })
 }
 
