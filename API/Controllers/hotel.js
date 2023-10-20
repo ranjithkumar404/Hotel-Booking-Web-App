@@ -44,4 +44,18 @@ const getAllHotel=async(req,res,next)=>{
         next(error)
     }
 }
-module.exports={createHotel,updateHotel,getAllHotel,getHotel,dltHotel}
+
+const countByCity=async (req,res,next)=>{
+    try {
+        const cities= req.query.cities.split(",")
+        //Promise.all is used to handle array request 
+        const list= await Promise.all(cities.map(city=>{
+            // return hotel.find({city:city}).length() it takes more time than the next return statement
+            return hotel.countDocuments({city:city})
+        }))
+        res.status(200).json(list)
+    } catch (error) {
+        
+    }
+}
+module.exports={createHotel,updateHotel,getAllHotel,getHotel,dltHotel,countByCity}
