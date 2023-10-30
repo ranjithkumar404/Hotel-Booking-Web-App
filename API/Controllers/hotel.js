@@ -58,4 +58,22 @@ const countByCity=async (req,res,next)=>{
         
     }
 }
-module.exports={createHotel,updateHotel,getAllHotel,getHotel,dltHotel,countByCity}
+const countByTypes=async (req,res,next)=>{
+    try {
+       const hotelcount= await hotel.countDocuments({type:"Hotel"})
+       const apartmentcount= await hotel.countDocuments({type:"apartment"})
+       const resortcount= await hotel.countDocuments({type:"resort"})
+       const villacount= await hotel.countDocuments({type:"villa"})
+       const cabincount= await hotel.countDocuments({type:"cabin"})
+        res.status(200).json([
+            {type:"hotel",count:hotelcount},
+            {type:"apartment",count:apartmentcount},
+            {type:"resort",count:resortcount},
+            {type:"villa",count:villacount},
+            {type:"cabin",count:cabincount}
+        ])
+    } catch (error) {
+        
+    }
+}
+module.exports={createHotel,updateHotel,getAllHotel,getHotel,dltHotel,countByCity,countByTypes}
