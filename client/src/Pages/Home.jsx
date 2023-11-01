@@ -4,7 +4,7 @@ import Property from '../components/Property'
 const Home = () => {
   return (
     <>
-    <div>Home</div>
+ <p className='text-left'>Browse by property type</p>
     <Property/>
     </>
   )

@@ -1,9 +1,9 @@
 import React from 'react'
 import UsefetchData from '../Hooks/Usefetch'
 const Property = () => {
-    const {data,loading,error}=UsefetchData("/hotel/countByType")
-    console.log(data);
-   console.log(error);
+    const {data,loading,error}=UsefetchData("http://localhost:3001/hotel/countByType")
+    console.log(data)
+   console.log(error)
     const images = [
         "https://cf.bstatic.com/xdata/images/xphoto/square300/57584488.webp?k=bf724e4e9b9b75480bbe7fc675460a089ba6414fe4693b83ea3fdd8e938832a6&o=",
         "https://cf.bstatic.com/static/img/theme-index/carousel_320x240/card-image-apartments_300/9f60235dc09a3ac3f0a93adbc901c61ecd1ce72e.jpg",
@@ -13,7 +13,7 @@ const Property = () => {
       ];
     return (<>
    
-    <p className='text-center'>Browse by property type</p>
+   
    <div  className='flex gap-6  justify-center'>
    {
   loading?("Loading..."):
@@ -22,10 +22,12 @@ const Property = () => {
     {data && images.map((i,x)=>{
         return(
 
-            <div className='' key={x}>
-                <img className='h-[10vw] rounded-md' src={i} alt="" />
-                <p>{data[x]?.type}</p>
+            <div className='text-gray-300 text-2xl font-bold' key={x}>
+                <img className='h-[25vh] w-[17vw] rounded-md' src={i} alt="" />
+                <div className='absolute p-2  top-[15vw]'>
+                <p >{data[x]?.type}</p>
                 <p>{data[x]?.count}</p>
+                </div>
             </div>
         )
     })

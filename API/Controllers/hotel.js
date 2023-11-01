@@ -73,7 +73,8 @@ const countByTypes=async (req,res,next)=>{
             {type:"cabin",count:cabincount}
         ])
     } catch (error) {
-        
+        console.log(error);
+        next(error)
     }
 }
 module.exports={createHotel,updateHotel,getAllHotel,getHotel,dltHotel,countByCity,countByTypes}
