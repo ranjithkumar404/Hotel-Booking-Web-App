@@ -29,5 +29,5 @@ try {
 }
 app.listen(3001,()=>{
     connect()
-    console.log("Server is listening!!!");
+    console.log("Server is listening!!!")
 })

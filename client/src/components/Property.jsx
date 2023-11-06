@@ -13,8 +13,7 @@ const Property = () => {
       ];
     return (<>
    
-   
-   <div  className='flex gap-6  justify-center'>
+   <div className='md:flex grid gap-3   justify-center '>
    {
   loading?("Loading..."):
   (
@@ -22,12 +21,11 @@ const Property = () => {
     {data && images.map((i,x)=>{
         return(
 
-            <div className='text-gray-300 text-2xl font-bold' key={x}>
-                <img className='h-[25vh] w-[17vw] rounded-md' src={i} alt="" />
-                <div className='absolute p-2  top-[15vw]'>
+            <div className='text-black text-2xl  font-bold' key={x}>
+                <img className='h-[200px]   w-[250px] rounded-md' src={i} alt="" />
+                <div className='   '>
                 <p >{data[x]?.type}</p>
-                <p>{data[x]?.count}</p>
-                </div>
+                <p>{data[x]?.count}</p></div>
             </div>
         )
     })

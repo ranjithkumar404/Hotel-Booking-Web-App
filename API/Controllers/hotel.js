@@ -38,7 +38,7 @@ const getHotel=async(req,res,next)=>{
 
 const getAllHotel=async(req,res,next)=>{
     try {
-        const gethotel= await hotel.find()
+        const gethotel= await hotel.find(req.query)
        res.status(200).json(gethotel)
     } catch (error) {
         next(error)
@@ -53,6 +53,7 @@ const countByCity=async (req,res,next)=>{
             // return hotel.find({city:city}).length() it takes more time than the next return statement
             return hotel.countDocuments({city:city})
         }))
+      
         res.status(200).json(list)
     } catch (error) {
         
@@ -66,11 +67,11 @@ const countByTypes=async (req,res,next)=>{
        const villacount= await hotel.countDocuments({type:"villa"})
        const cabincount= await hotel.countDocuments({type:"cabin"})
         res.status(200).json([
-            {type:"hotel",count:hotelcount},
-            {type:"apartment",count:apartmentcount},
-            {type:"resort",count:resortcount},
-            {type:"villa",count:villacount},
-            {type:"cabin",count:cabincount}
+            {type:"Hotel",count:hotelcount},
+            {type:"Apartment",count:apartmentcount},
+            {type:"Resort",count:resortcount},
+            {type:"Villa",count:villacount},
+            {type:"Cabin",count:cabincount}
         ])
     } catch (error) {
         console.log(error);
