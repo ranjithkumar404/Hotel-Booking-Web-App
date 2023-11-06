@@ -7,7 +7,7 @@ import Featured from '../components/Featured'
 const Home = () => {
   return (
     <>
-   <div className='overflow-hidden bg-blue-400'>
+   <div className='overflow-hidden bg-[#ADD8E6]'>
    <Nav/>
  <div className='p-5 space-y-10 pt-20 '>
  <p className='text-center font-semibold text-xl'>Browse by Place</p>
