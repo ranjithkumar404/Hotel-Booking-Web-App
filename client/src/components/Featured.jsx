@@ -21,7 +21,7 @@ const Featured = () => {
         return(
 
             <div className='text-black text-2xl font-bold' key={x}>
-                <img className='h-[200px]  w-[250px] rounded-md' src={i} alt="" />
+                <img className='h-[200px] hover:scale-105 duration-500  w-[250px] rounded-md' src={i} alt="" />
                 <div>
                 <p >{data[x]?.name}</p>
                 <p>{data[x]?.city}</p>
