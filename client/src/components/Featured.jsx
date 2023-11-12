@@ -14,7 +14,9 @@ const Featured = () => {
    <>
    <div className='md:flex  grid gap-3 items-center  justify-center'>
    {
-  loading?("Loading..."):
+  loading?(<div className='w-screen flex items-center justify-center absolute text-center h-screen backdrop-blur-md'>
+  <div className='text-5xl font-semibold'>Loading..</div>
+  </div>):
   (
     <>
     {data && images.map((i,x)=>{

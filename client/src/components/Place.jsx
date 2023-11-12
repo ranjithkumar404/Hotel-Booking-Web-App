@@ -5,9 +5,9 @@ const Place = () => {
    return (
       <>
      <div className="md:flex grid gap-3    justify-center">
-      {loading ? (
-        "Loading please wait"
-      ) : (
+      {loading ?(<div className='w-screen flex items-center justify-center absolute text-center h-screen backdrop-blur-md'>
+    <div className='text-5xl font-semibold'>Loading..</div>
+    </div>) : (
         <>
           <div className="overflow-hidden">
             <img className='h-[200px] hover:scale-110 duration-500  w-[250px] rounded-md' 

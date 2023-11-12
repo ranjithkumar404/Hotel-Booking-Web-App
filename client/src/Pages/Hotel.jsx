@@ -1,15 +1,21 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation,useNavigate } from 'react-router-dom'
 import UsefetchData from '../Hooks/Usefetch'
+import Nav from '../components/Nav'
 const Hotel = () => {
     const location=useLocation()
+    const navigate=useNavigate()
     const {place,sdate,edate}=location.state
    const {data,lodaing,error}=UsefetchData(`http://localhost:3001/hotel?city=${place}`)
-  
+  const handleSubmit=(i)=>{
+    const id=i._id;
+   navigate("/room",{state:{id}})
+  }
 
   return (
     <>
-    <div className='bg-[#ADD8E6] flex flex-col justify-center  space-y-4 py-10 items-center min-h-screen'>
+    <Nav/>
+    <div className='bg-[#ADD8E6] flex flex-col justify-center  space-y-4 py-24 items-center min-h-screen'>
 {
   data.map((i)=>{
     return(
@@ -21,7 +27,7 @@ const Hotel = () => {
         <p>{i.name} {i.type}</p>
         <p>{i.distance} from airport</p>
         <p>${i.cheapestPrice}</p>
-        <button className='bg-slate-400 text-white rounded-md p-2'>See Availability</button>
+        <button onClick={()=>handleSubmit(i)} className='bg-slate-400 text-white rounded-md p-2'>See Availability</button>
         </div>
       </div>
     )
