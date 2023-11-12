@@ -6,7 +6,7 @@ import { ImLocation2 } from 'react-icons/im';
 const Room = () => {
 const location=useLocation()
 
-const {data,lodaing,error}=UsefetchData(`http://localhost:3001/hotel/find/${location.state.id}`)
+const {data,loading,error}=UsefetchData(`http://localhost:3001/hotel/find/${location.state.id}`)
 console.log(data);
 console.log(error);
   return (
@@ -21,13 +21,16 @@ console.log(error);
 </div>
 <div className='grid  grid-cols-3 md:grid-cols-5 gap-2'>
  {
-  data.photos?.map((i)=>{
+  loading?(<div className='w-screen flex items-center justify-center absolute text-center h-screen backdrop-blur-md'>
+    <div className='text-5xl font-semibold'>Loading..</div>
+    </div>):
+  (data.photos?.map((i)=>{
     return (
       <div >
         <img className='w-[22vw] rounded-md md:w-[20vw]' src={i} alt="" />
       </div>
     )
-  })
+  }))
  }
 </div>
       
