@@ -11,20 +11,20 @@ console.log(data);
 console.log(error);
   return (
     <>
-    <div className='bg-[#ADD8E6] min-h-screen p-10'>
+    <div className='bg-[#ADD8E6] box-border overflow-hidden h-screen p-10'>
 
-    <div className='flex flex-col rounded-md text-white bg-[#47b6db] shadow-md  min-h-screen justify-center items-center'>
+    <div className='flex  flex-col rounded-md text-white bg-[#47b6db] shadow-md p-16  justify-center  items-center'>
     <div className=' ' key={data._id}>
         <h1 className='text-3xl font-semibold'>{data.name}</h1>
          <h1 className='flex text-2xl'>< ImLocation2 size={30}/>{data.city}</h1>
          <h1>{data.desc}</h1>
 </div>
-<div>
+<div className='grid  grid-cols-3 md:grid-cols-5 gap-2'>
  {
   data.photos?.map((i)=>{
     return (
-      <div>
-        <img src={i} alt="" />
+      <div >
+        <img className='w-[22vw] rounded-md md:w-[20vw]' src={i} alt="" />
       </div>
     )
   })
