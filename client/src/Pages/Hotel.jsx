@@ -9,13 +9,13 @@ const Hotel = () => {
 
   return (
     <>
-    <div className='bg-[#ADD8E6] flex flex-col justify-center  space-y-4 py-10 items-center h-full'>
+    <div className='bg-[#ADD8E6] flex flex-col justify-center  space-y-4 py-10 items-center min-h-screen'>
 {
   data.map((i)=>{
     return(
-      <div className='p-4 hover:scale-105 duration-500 hover:shadow-lg flex  space-x-8 items-center w-[60vw] md:w-[30vw] rounded-md bg-gray-600/20'>
+      <div className='p-4 hover:scale-105 duration-500 hover:shadow-lg flex  space-x-8  items-center w-[60vw] md:w-[30vw] rounded-md bg-gray-600/20'>
         <div>
-     <img className='h-fit rounded-md w-[22vw]   md:w-[8vw]' src={i.photos[0]} alt="hotel" />
+     <img className=' rounded-md w-[22vw]   md:w-[10vw]' src={i.photos[0]} alt="hotel" />
         </div>
         <div className='space-y-2'>
         <p>{i.name} {i.type}</p>
