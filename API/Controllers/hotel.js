@@ -37,8 +37,9 @@ const getHotel=async(req,res,next)=>{
 }
 
 const getAllHotel=async(req,res,next)=>{
+    const {city}=req.query;
     try {
-        const gethotel= await hotel.find(req.query)
+        const gethotel= await hotel.find({city:city})
        res.status(200).json(gethotel)
     } catch (error) {
         next(error)

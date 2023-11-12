@@ -1,7 +1,10 @@
 import{ React,useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+
 const Search = () => {
+ const navigate=useNavigate()
     const [place,setPlace]=useState('')
     const [sdate,setSdate]=useState(new Date())
     const [edate,setEdate]=useState()
@@ -11,6 +14,10 @@ const Search = () => {
     const handleE=(date)=>{
       setEdate(date)
   }
+const submit=()=>{
+  navigate('/hotel',{state:{place,sdate,edate}})
+}
+
   return (
     <>
      <div className='flex  text-white  justify-center'>
@@ -34,9 +41,10 @@ selectsEnd
    endDate={edate}
    placeholderText='End Date'
 />
-<button className='bg-gray-600 hover:bg-transparent hover:text-black  hover:bg-gray-700 rounded-md p-3'>Search</button>
+<button onClick={submit} className='bg-gray-600 hover:bg-transparent hover:text-black  hover:bg-gray-700 rounded-md p-3'>Search</button>
        </div>
      </div>
+    
     </>
   )
 }
