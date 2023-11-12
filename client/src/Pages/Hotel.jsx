@@ -19,7 +19,7 @@ const Hotel = () => {
 {
   data.map((i)=>{
     return(
-      <div className='p-4 hover:scale-105 duration-500 hover:shadow-lg flex  space-x-8  items-center w-[60vw] md:w-[30vw] rounded-md bg-gray-600/20'>
+      <div key={i._id} className='p-4 hover:scale-105 duration-500 hover:shadow-lg flex  space-x-8  items-center w-[60vw] md:w-[30vw] rounded-md bg-gray-600/20'>
         <div>
      <img className=' rounded-md w-[22vw]   md:w-[10vw]' src={i.photos[0]} alt="hotel" />
         </div>

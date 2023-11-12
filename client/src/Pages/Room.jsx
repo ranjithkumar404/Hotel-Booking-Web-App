@@ -1,23 +1,34 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import UsefetchData from '../Hooks/Usefetch'
+import { ImLocation2 } from 'react-icons/im';
+
 const Room = () => {
 const location=useLocation()
 
 const {data,lodaing,error}=UsefetchData(`http://localhost:3001/hotel/find/${location.state.id}`)
 console.log(data);
-
+console.log(error);
   return (
     <>
     <div className='bg-[#ADD8E6] min-h-screen p-10'>
 
-    <div className='flex flex-col rounded-md  bg-[#47b6db] shadow-md  min-h-screen justify-center items-center'>
+    <div className='flex flex-col rounded-md text-white bg-[#47b6db] shadow-md  min-h-screen justify-center items-center'>
     <div className=' ' key={data._id}>
-        <h1>{data.name}</h1>
-         <h1>{data.city}</h1>
+        <h1 className='text-3xl font-semibold'>{data.name}</h1>
+         <h1 className='flex text-2xl'>< ImLocation2 size={30}/>{data.city}</h1>
+         <h1>{data.desc}</h1>
 </div>
 <div>
-  <h1>pics</h1>
+ {
+  data.photos?.map((i)=>{
+    return (
+      <div>
+        <img src={i} alt="" />
+      </div>
+    )
+  })
+ }
 </div>
       
    
