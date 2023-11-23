@@ -13,11 +13,14 @@ console.log(error);
     <>
     <div className='bg-[#ADD8E6] box-border overflow-hidden h-screen p-10'>
 
-    <div className='flex  flex-col rounded-md text-white bg-[#47b6db] shadow-md p-16  justify-center  items-center'>
-    <div className=' ' key={data._id}>
-        <h1 className='text-3xl font-semibold'>{data.name}</h1>
-         <h1 className='flex text-2xl'>< ImLocation2 size={30}/>{data.city}</h1>
-         <h1>{data.desc}</h1>
+    <div className='flex  flex-col rounded-md text-white bg-[#47b6db] shadow-md p-16 gap-3 justify-center  '>
+    <div className=' flex justify-around' key={data._id}>
+        <div><h1 className='text-3xl font-semibold'>{data.name}</h1>
+         <h1 className='flex items-center text-2xl'>< ImLocation2 size={20}/>{data.city}</h1>
+         <h1>{data.desc}</h1></div>
+         <div>
+          <button className='bg-[#149fce] p-5 rounded-md'>Book now</button>
+         </div>
 </div>
 <div className='grid  grid-cols-3 md:grid-cols-5 gap-2'>
  {
