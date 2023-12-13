@@ -9,6 +9,7 @@ const App = () => {
   return (
    <>
     <div  >
+       
        <Router>
        <Routes>
      <Route path='/' element={<Home/>}/>
@@ -16,6 +17,7 @@ const App = () => {
      <Route path='/room' element={<Room/>}/>
     </Routes>
        </Router>
+       
     </div>
    </>
   )

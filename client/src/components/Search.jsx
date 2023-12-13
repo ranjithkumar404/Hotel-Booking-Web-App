@@ -1,9 +1,11 @@
-import{ React,useState } from 'react'
+import{ React,useContext,useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { SearchContext } from '../Hooks/SearchContext';
 
 const Search = () => {
+  const {date}=useContext(SearchContext)
  const navigate=useNavigate()
     const [place,setPlace]=useState('')
     const [sdate,setSdate]=useState(new Date())
@@ -15,6 +17,7 @@ const Search = () => {
       setEdate(date)
   }
 const submit=()=>{
+  date(sdate,edate)
   navigate('/hotel',{state:{place,sdate,edate}})
 }
 

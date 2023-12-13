@@ -9,6 +9,6 @@ router.get('/find/:id',getHotel)
 router.get('/',getAllHotel)
 router.get('/countbyc',countByCity)
 router.get('/countByType',countByTypes)
-// router.get('/countbyt',countByType)
+
 
 module.exports=router

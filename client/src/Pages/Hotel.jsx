@@ -12,7 +12,7 @@ const Hotel = () => {
    console.log(error);
   const handleSubmit=(i)=>{
     const id=i._id;
-   navigate("/room",{state:{id}})
+   navigate("/room",{state:{id,sdate,edate}})
   }
 
   return (

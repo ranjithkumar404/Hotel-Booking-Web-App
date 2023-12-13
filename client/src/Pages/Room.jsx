@@ -1,15 +1,21 @@
 import React from 'react'
-
+import { SearchContext } from '../Hooks/SearchContext';
 import { useLocation } from 'react-router-dom'
 import UsefetchData from '../Hooks/Usefetch'
 import { ImLocation2 } from 'react-icons/im';
+import { useContext } from 'react';
 
 const Room = () => {
 const location=useLocation()
-
+const {sdate,edate}=useContext(SearchContext)
+console.log(sdate,edate);
+//we need to convert the date into the string ,en-US is the date format of USA
+// const formates=sdate.toLocaleDateString('en-US', { day: 'numeric', month: 'numeric' });
+// const formate=edate.toLocaleDateString('en-US', { day: 'numeric', month: 'numeric' })
+const s=sdate.getDate()
+const m=sdate.getMonth()+1
 const {data,loading,error}=UsefetchData(`http://localhost:3001/hotel/find/${location.state.id}`)
-console.log(data);
-console.log(error);
+
   return (
     <>
     <div className='bg-[#ADD8E6] box-border overflow-hidden h-screen p-10'>
@@ -18,7 +24,10 @@ console.log(error);
     <div className=' flex justify-around' key={data._id}>
         <div><h1 className='text-3xl font-semibold'>{data.name}</h1>
          <h1 className='flex items-center text-2xl'>< ImLocation2 size={20}/>{data.city}</h1>
-         <h1>{data.desc}</h1></div>
+         <h1>{data.desc}</h1>
+         <h1>{s}</h1>
+         <h1>{m}</h1>
+         </div>
          <div>
           <button className='bg-[#149fce] p-5 rounded-md'>Book now</button>
          </div>

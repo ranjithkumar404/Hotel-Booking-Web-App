@@ -3,6 +3,7 @@ import UsefetchData from '../Hooks/Usefetch'
 const Featured = () => {
     const {data,loading,error}=UsefetchData("http://localhost:3001/hotel?featured=true")
     console.log(data);
+    console.log(error);
     const images=[
         "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
         "https://img.freepik.com/free-photo/beautiful-luxury-outdoor-swimming-pool-hotel-resort_74190-7433.jpg",
@@ -15,7 +16,7 @@ const Featured = () => {
    <div className='md:flex  grid gap-3 items-center  justify-center'>
    {
   loading?(<div className='w-screen flex items-center justify-center absolute text-center h-screen backdrop-blur-md'>
-  <div className='text-5xl font-semibold'>Loading..</div>
+  <div className='text-5xl font-semibold'>Loading...</div>
   </div>):
   (
     <>
