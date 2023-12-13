@@ -8,12 +8,16 @@ import { useContext } from 'react';
 const Room = () => {
 const location=useLocation()
 const {sdate,edate}=useContext(SearchContext)
-console.log(sdate,edate);
-//we need to convert the date into the string ,en-US is the date format of USA
-// const formates=sdate.toLocaleDateString('en-US', { day: 'numeric', month: 'numeric' });
-// const formate=edate.toLocaleDateString('en-US', { day: 'numeric', month: 'numeric' })
-const s=sdate.getDate()
-const m=sdate.getMonth()+1
+//needs to be modified to calculate the no.of nights
+const calculate=(sdate,edate)=>{
+  const sd=sdate.getDate()
+const sm=sdate.getMonth()+1
+const ed=edate.getDate()
+const em=edate.getMonth()+1
+const nights=(em-sm)*30+(ed-sd);
+return nights;
+}
+const totalnights=calculate(sdate,edate)
 const {data,loading,error}=UsefetchData(`http://localhost:3001/hotel/find/${location.state.id}`)
 
   return (
@@ -25,8 +29,7 @@ const {data,loading,error}=UsefetchData(`http://localhost:3001/hotel/find/${loca
         <div><h1 className='text-3xl font-semibold'>{data.name}</h1>
          <h1 className='flex items-center text-2xl'>< ImLocation2 size={20}/>{data.city}</h1>
          <h1>{data.desc}</h1>
-         <h1>{s}</h1>
-         <h1>{m}</h1>
+        <h1>{totalnights}</h1>
          </div>
          <div>
           <button className='bg-[#149fce] p-5 rounded-md'>Book now</button>
