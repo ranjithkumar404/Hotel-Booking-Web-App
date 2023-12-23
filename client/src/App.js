@@ -5,6 +5,7 @@ import Home from './Pages/Home'
 import Hotel from './Pages/Hotel'
 import Room from './Pages/Room'
 import Login from './components/Login'
+import Register from './components/Regsiter'
 const App = () => {
   return (
    <>
@@ -16,6 +17,7 @@ const App = () => {
      <Route path='/hotel' element={<Hotel/>}/>
      <Route path='/room' element={<Room/>}/>
      <Route path='/login' element={<Login/>}/>
+     <Route path='/register' element={<Register/>}/>
     </Routes>
        </Router>
        

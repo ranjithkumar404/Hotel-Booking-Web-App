@@ -16,7 +16,10 @@ try {
   const res= await axios.post('http://localhost:3001/auth/login',{name,password})
   console.log(res.status);
   if(res.status ===404) alert("User not found");
-   else navigate('/',{state:{name}})
+   else{
+    localStorage.setItem('username',name);
+    navigate('/')
+   } 
 } catch (error) {
   //make sure to add the navigate function to move to register page
    if(error.response.status === 404) alert("User not found!!");
