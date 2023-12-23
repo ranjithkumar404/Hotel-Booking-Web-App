@@ -21,8 +21,9 @@ try {
     navigate('/')
    } 
 } catch (error) {
-  //make sure to add the navigate function to move to register page
-   if(error.response.status === 404) alert("User not found!!");
+ 
+  if(error.response.status === 404) alert("User not found!!");
+  navigate('/register')
   // console.log(error);
 }
  }
