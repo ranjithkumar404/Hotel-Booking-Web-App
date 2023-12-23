@@ -23,8 +23,8 @@ const submit=()=>{
 
   return (
     <>
-     <div className='flex  text-white  justify-center'>
-       <div className='md:flex grid p-2 gap-3  bg-slate-900/20 rounded-md shadow-md  md:w-[700px]'>
+     <div className='flex text-[20px]  text-white  justify-center'>
+       <div className='md:flex grid p-3 gap-3  bg-slate-900/20 rounded-md shadow-md  md:w-[700px]'>
        <input className=' bg-transparent  focus:outline-none placeholder-white  w-[150px] text-white rounded-md p-3 ' onChange={(e)=>setPlace(e.target.value)} value={place}  type="text" placeholder='Place'/>
 {/* <input className='bg-transparent focus:outline-none   rounded-md p-3 ' placeholder='Date' type="date" /> */}
 <DatePicker className='bg-transparent focus:outline-none  placeholder-white rounded-md p-3'

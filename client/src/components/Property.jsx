@@ -22,7 +22,7 @@ const Property = () => {
     {data && images.map((i,x)=>{
         return(
 
-            <div className='text-black  text-2xl  overflow-hidden font-bold' key={x}>
+            <div className='text-black  text-[25px]  overflow-hidden font-bold' key={x}>
                 <img className='h-[200px]  hover:scale-110 duration-500  w-[250px] rounded-md' src={i} alt="" />
                 <div className='   '>
                 <p >{data[x]?.type}</p>
