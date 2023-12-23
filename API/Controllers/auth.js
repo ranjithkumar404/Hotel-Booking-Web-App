@@ -20,7 +20,8 @@ const hash = bcrypt.hashSync(req.body.password, salt);//to protect the password 
 
 const login=async(req,res,next)=>{
     try{
-     const userdetail=await  user.findOne({username:req.body.username})
+      console.log(req.body);
+     const userdetail=await  user.findOne({username:req.body.name})
      if(!userdetail) return res.status(404).json("User not found!!!")
      const isPassword =await bcrypt.compareSync(req.body.password,userdetail.password)//have to check with the hashed password in the DB
     if(!isPassword) return res.status(400).json("Wrong password!!!")

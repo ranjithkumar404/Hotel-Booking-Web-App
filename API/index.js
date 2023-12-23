@@ -12,7 +12,7 @@ const cookieparser=require("cookie-parser")
 app.use(cors())
 app.use(express.json())
 app.use(cookieparser())
-app.get("/",(Req,res)=>{
+app.get("/",(req,res)=>{
     res.send("Hello")
 })
 app.use('/hotel',hotelrouter)
