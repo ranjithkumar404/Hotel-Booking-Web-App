@@ -8,7 +8,7 @@ const Hotel = () => {
     const {place,sdate,edate}=location.state
    
    const {data,lodaing,error}=UsefetchData(`http://localhost:3001/hotel?city=${place}`)
-   console.log(data);
+   console.log("Hotels",data);
    console.log(error);
   const handleSubmit=(i)=>{
     const id=i._id;

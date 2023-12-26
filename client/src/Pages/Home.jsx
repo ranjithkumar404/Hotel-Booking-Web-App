@@ -14,9 +14,9 @@ const Home = () => {
   <Search/>
  <p className='text-center font-semibold text-[35px]'>Browse by Place</p>
 <Place/>
- <p className='text-center font-semibold text-[35px] text-xl'>Browse by Property type</p>
+ <p className='text-center font-semibold text-[35px] '>Browse by Property type</p>
     <Property/>
-    <p className='text-center font-semibold text-[35px] text-xl'>Browse by Featured</p>
+    <p className='text-center font-semibold text-[35px] '>Browse by Featured</p>
     <Featured/>
  </div>
    </div>
