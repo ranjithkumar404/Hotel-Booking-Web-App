@@ -45,6 +45,14 @@ const getAllHotel=async(req,res,next)=>{
         next(error)
     }
 }
+const getFeatured=async(req,res,next)=>{
+    try {
+        const hotels=await hotel.find({featured:true})
+        res.status(200).json(hotels)
+    } catch (error) {
+        next(error)
+    }
+}
 
 const countByCity=async (req,res,next)=>{
     try {
@@ -79,4 +87,4 @@ const countByTypes=async (req,res,next)=>{
         next(error)
     }
 }
-module.exports={createHotel,updateHotel,getAllHotel,getHotel,dltHotel,countByCity,countByTypes}
+module.exports={createHotel,updateHotel,getAllHotel,getHotel,dltHotel,countByCity,countByTypes,getFeatured}

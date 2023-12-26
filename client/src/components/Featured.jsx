@@ -1,7 +1,7 @@
 import React from 'react'
 import UsefetchData from '../Hooks/Usefetch'
 const Featured = () => {
-    const {data,loading,error}=UsefetchData("http://localhost:3001/hotel?featured=true")
+    const {data,loading,error}=UsefetchData("http://localhost:3001/hotel/featured")
     console.log(data);
     console.log(error);
     const images=[
