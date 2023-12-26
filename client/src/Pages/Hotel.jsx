@@ -11,8 +11,10 @@ const Hotel = () => {
    console.log("Hotels",data);
    console.log(error);
   const handleSubmit=(i)=>{
+    if(!(sdate&&edate)) alert("Please enter the dates before checking the availability")
+   else {
     const id=i._id;
-   navigate("/room",{state:{id,sdate,edate}})
+    navigate("/room",{state:{id,sdate,edate}})}
   }
 
   return (
