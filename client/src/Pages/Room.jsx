@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { SearchContext } from '../Hooks/SearchContext';
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import UsefetchData from '../Hooks/Usefetch'
 import { ImLocation2 } from 'react-icons/im';
 import { useContext } from 'react';
@@ -9,6 +9,7 @@ const Room = () => {
 const location=useLocation()
 const {sdate,edate}=useContext(SearchContext)
 const [book,setbook]=useState(false);
+const name=localStorage.getItem('username')
 const change=()=>{
   setbook(true);
 }
@@ -27,7 +28,10 @@ const {data,loading,error}=UsefetchData(`http://localhost:3001/hotel/find/${loca
   return (
     <>
   
-{book?(<div className='backdrop-blur-sm  absolute w-screen   h-screen bg-transparent flex items-center justify-center text-center text-5xl   p-10'>You have successfully booked a  <p className='font-bold '>{data.name}'s ROOM!</p></div>):(<div className='bg-transparent'></div>)}
+{
+  name?(
+    <>
+    {book?(<div className='backdrop-blur-sm  absolute w-screen space-y-10  h-screen bg-transparent flex flex-col items-center justify-center text-center text-5xl   p-10'><p>You have successfully booked a  <p className='font-bold '>{data.name}'s ROOM!</p></p><Link  to="/" className='bg-[#149fce] text-center text-xl text-white p-2 rounded-md'>Back to Home</Link></div>):(<div className='bg-transparent'></div>)}
       <div className='bg-[#ADD8E6] box-border overflow-hidden h-screen p-10'>
       <div className='flex  flex-col rounded-md text-white bg-[#47b6db] shadow-md p-16 gap-3 justify-center  '>
     
@@ -64,6 +68,11 @@ const {data,loading,error}=UsefetchData(`http://localhost:3001/hotel/find/${loca
     </div>
     </div>
 
+    </>
+  ):(<div className='flex flex-col w-screen h-screen space-y-5 justify-center items-center'><p className='text-5xl'>"Login or Register to Book a room"</p>
+  <Link  to="/" className='bg-[#149fce] text-center text-xl text-white p-2 rounded-md'>Back to Home</Link>
+  </div>)
+}
     </>
   )
 }
