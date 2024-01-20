@@ -27,10 +27,13 @@ const {data,loading,error}=UsefetchData(`http://localhost:3001/hotel/find/${loca
   return (
     <>
   
+{book?(<div className='backdrop-blur-sm  absolute w-screen   h-screen bg-transparent flex items-center justify-center text-center text-5xl   p-10'>You have successfully booked a  <p className='font-bold '>{data.name}'s ROOM!</p></div>):(<div className='bg-transparent'></div>)}
       <div className='bg-[#ADD8E6] box-border overflow-hidden h-screen p-10'>
-
-    <div className='flex  flex-col rounded-md text-white bg-[#47b6db] shadow-md p-16 gap-3 justify-center  '>
-    <div className=' flex justify-around' key={data._id}>
+      <div className='flex  flex-col rounded-md text-white bg-[#47b6db] shadow-md p-16 gap-3 justify-center  '>
+    
+    
+   <div>
+     <div className=' flex justify-around' key={data._id}>
         <div><h1 className='text-3xl font-semibold'>{data.name}</h1>
          <h1 className='flex items-center text-2xl'>< ImLocation2 size={20}/>{data.city}</h1>
          <h1>{data.desc}</h1>
@@ -54,8 +57,10 @@ const {data,loading,error}=UsefetchData(`http://localhost:3001/hotel/find/${loca
   }))
  }
 </div>
+   </div>
       
    
+      
     </div>
     </div>
 
