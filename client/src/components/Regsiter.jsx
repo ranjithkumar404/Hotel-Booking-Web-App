@@ -33,7 +33,7 @@ try {
         <input required onChange={(e)=>{setName(e.target.value)}}  value={username } className=' focus:outline-none   rounded-md p-3' placeholder='User name' type="text" name="" id="" />
         <input required onChange={(e)=>{setPassword(e.target.value)}} value={password} className=' focus:outline-none   rounded-md p-3' placeholder='Password' type="password" name="" id="" />
         <input required onChange={(e)=>{setMail(e.target.value)}} value={email} className=' focus:outline-none   rounded-md p-3' placeholder='E-mail address' type="email" name="" id="" />
-        <button onClick={submit} className='bg-[#14a5d5] p-3 rounded-md text-white'>Register</button>
+        <button onClick={submit} className='bg-[#14a5d5] hover:text-white hover:bg-[#40c4f0] p-3 rounded-md text-white'>Register</button>
       </form>
    </div>
    

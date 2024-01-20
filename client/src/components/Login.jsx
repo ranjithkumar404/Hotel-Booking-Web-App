@@ -22,18 +22,20 @@ try {
    } 
 } catch (error) {
  
-  if(error.response.status === 404) alert("User not found!!");
+  if(error.response.status === 404){
+   alert("User not found!!");
   navigate('/register')
+  }
   // console.log(error);
 }
  }
   return (
    <>
-   <div className='bg-[#ADD8E6] flex items-center justify-center h-screen w-screen'>
-      <form className='flex flex-col items-center justify-center w-[350px] h-[350px] bg-[#40c4f0]  rounded-md shadow-md backdrop-blur-sm space-y-3' action="" method="post">
-        <input required onChange={(e)=>{setName(e.target.value)}}  value={name } className=' focus:outline-none   rounded-md p-3' placeholder='User name' type="text" name="" id="" />
-        <input required onChange={(e)=>{setPassword(e.target.value)}} value={password} className=' focus:outline-none   rounded-md p-3' placeholder='Password' type="password" name="" id="" />
-        <button onClick={submit} className='bg-[#14a5d5] p-3 rounded-md text-white'>Login</button>
+   <div className='bg-[#40c4f0] text-black flex items-center justify-center h-screen w-screen'>
+      <form className='flex flex-col items-center justify-center w-[350px] h-[350px] shadow-lg  focus:border rounded-md  space-y-3' action="" method="post">
+        <input required onChange={(e)=>{setName(e.target.value)}}  value={name } className=' focus:outline-none bg-transparent border-b-[2px]  border-black placeholder-black focus:border-white  p-3' placeholder='User name' type="text" name="" id="" />
+        <input required onChange={(e)=>{setPassword(e.target.value)}} value={password} className=' focus:outline-none bg-transparent focus:border-white  border-b-[2px] border-black placeholder-black p-3' placeholder='Password' type="password" name="" id="" />
+        <button onClick={submit} className='bg-white text-lg px-8 py-3 rounded-md hover:text-white hover:bg-[#40c4f0] hover:border-2 font-bold'>Login</button>
       </form>
    </div>
    </>

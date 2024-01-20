@@ -23,12 +23,12 @@ const Featured = () => {
     {data && images.map((i,x)=>{
         return(
 
-            <div className='text-black overflow-hidden text-2xl font-bold' key={x}>
+            <div className='text-black overflow-hidden text-2xl ' key={x}>
                 <img className='h-[200px] hover:scale-105 duration-500  w-[250px] rounded-md' src={i} alt="" />
                 <div>
-                <p >{data[x]?.name}</p>
+                <p className='font-bold' >{data[x]?.name}</p>
                 <p>{data[x]?.city}</p>
-                <p>Starting from {data[x]?.cheapestPrice}</p>
+                <p>Starting from <span className='font-bold'>{data[x]?.cheapestPrice}</span></p>
                 </div>
             </div>
         )
