@@ -31,9 +31,9 @@ const {data,loading,error}=UsefetchData(`http://localhost:3001/hotel/find/${loca
 {
   name?(
     <>
-    {book?(<div className='backdrop-blur-sm  absolute w-screen space-y-10  h-screen bg-transparent flex flex-col items-center justify-center text-center text-5xl   p-10'><p>You have successfully booked a  <p className='font-bold '>{data.name}'s ROOM!</p></p><Link  to="/" className='bg-[#149fce] text-center text-xl text-white p-2 rounded-md'>Back to Home</Link></div>):(<div className='bg-transparent'></div>)}
+    {book?(<div className='backdrop-blur-sm  absolute w-screen space-y-10  h-screen bg-transparent flex flex-col items-center justify-center text-center text-5xl   p-10'><p>You have successfully booked the  <p className='font-bold '>{data.name}'s ROOM!</p></p><Link  to="/" className='bg-[#149fce] text-center text-xl text-white p-2 rounded-md'>Back to Home</Link></div>):(<div className='bg-transparent'></div>)}
       <div className='bg-gradient-to-r from-[#2193b0] to-[#6dd5ed] box-border overflow-hidden h-screen p-10'>
-      <div className='flex  flex-col rounded-md text-white bg-[#47b6db] shadow-md p-16 gap-3 justify-center  '>
+      <div className='flex  flex-col rounded-md  bg-[#47b6db] shadow-md p-16 gap-3 justify-center  '>
     
     
    <div>
@@ -44,7 +44,7 @@ const {data,loading,error}=UsefetchData(`http://localhost:3001/hotel/find/${loca
         <h1>{totalnights}</h1>
          </div>
          <div>
-          <button onClick={change} className='bg-[#149fce] p-5 rounded-md'>Book now</button>
+          <button onClick={change} className='bg-[#149fce] p-5 rounded-md text-white'>Book now</button>
          </div>
 </div>
 <div className='grid  grid-cols-3 md:grid-cols-5 gap-2'>
