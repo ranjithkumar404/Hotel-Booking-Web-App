@@ -32,7 +32,7 @@ const {data,loading,error}=UsefetchData(`http://localhost:3001/hotel/find/${loca
   name?(
     <>
     {book?(<div className='backdrop-blur-sm  absolute w-screen space-y-10  h-screen bg-transparent flex flex-col items-center justify-center text-center text-5xl   p-10'><p>You have successfully booked a  <p className='font-bold '>{data.name}'s ROOM!</p></p><Link  to="/" className='bg-[#149fce] text-center text-xl text-white p-2 rounded-md'>Back to Home</Link></div>):(<div className='bg-transparent'></div>)}
-      <div className='bg-[#ADD8E6] box-border overflow-hidden h-screen p-10'>
+      <div className='bg-gradient-to-r from-[#2193b0] to-[#6dd5ed] box-border overflow-hidden h-screen p-10'>
       <div className='flex  flex-col rounded-md text-white bg-[#47b6db] shadow-md p-16 gap-3 justify-center  '>
     
     

@@ -8,7 +8,7 @@ import Search from '../components/Search'
 const Home = () => {
   return (
     <>
-   <div className='overflow-hidden  bg-[#ADD8E6]'>
+   <div className='overflow-hidden  bg-gradient-to-r from-[#2193b0] to-[#6dd5ed]'>
    <Nav/>
  <div className='p-5 space-y-10 pt-24 '>
   <Search/>

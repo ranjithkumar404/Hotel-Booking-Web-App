@@ -20,7 +20,7 @@ const Hotel = () => {
   return (
     <>
     <Nav/>
-    <div className='bg-[#ADD8E6] flex flex-col justify-center  space-y-4 py-24 items-center min-h-screen'>
+    <div className='bg-gradient-to-r from-[#2193b0] to-[#6dd5ed] flex flex-col justify-center  space-y-4 py-24 items-center min-h-screen'>
 {
   data.length!=0 ? (
     data.map((i)=>{

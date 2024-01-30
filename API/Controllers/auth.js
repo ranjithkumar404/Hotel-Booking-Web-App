@@ -4,6 +4,8 @@ const jwt=require('jsonwebtoken')
 require('dotenv').config()
 const createUser=async(req,res,next)=>{
   try {
+    const userdetail=await  user.findOne({username:req.body.username})
+    if(userdetail) return res.status(404).json("Username already exist!!!")
     const salt = bcrypt.genSaltSync(10);//measure of how many times the password will be hashed.
 const hash = bcrypt.hashSync(req.body.password, salt);//to protect the password stored in DB
     await user.create({
